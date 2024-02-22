@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hola</title>
+</head>
+
+<body>
+
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <br><br><br><br><br><br><br><br><br>
+
+    <div class="inicio_Secion">
+
+
+        <form class="login-form" method="post">
+            {{error}}
+            {% csrf_token %}
+            <h1>Login</h1>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" class="input-field" required>
+    
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="input-field" required>
+    
+            <button type="submit" class="submit-button">Iniciar Sesion</button>
+    
+            <a href="{% url 'reset_password' %}" class="forgot-password">¿Olvidó su contraseña?</a>
+        </form>
+
+
+
+
+
+
+       
+
+
+    </div>
+    {% endblock %}
+
+</body>
+
+</html>

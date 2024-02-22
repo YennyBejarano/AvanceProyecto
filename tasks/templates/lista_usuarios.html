@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<html>
+<br><br><br><br><br><br><br>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+<div class="table-container">
+    <div>
+    <form method="post" action="/busqueda/">
+        {% csrf_token %}
+        <a class="buscar">
+            <input type="text" name="nombre" placeholder="Buscar" />
+
+            <div class="btn">
+                <button class="fas-fa-search">buscar</button>
+            </div>
+    </form>
+    </div>
+    <br> <br> <br> <br> <br>
+
+    <table>
+        <thead>
+            <tr>
+                <h1>Tabla de usuarios</h1>
+                <th>ID</th>
+                <th>Cedula</th>
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Celular</th>
+                <th>Correo Electronico</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.tipo_usuario }}</td>
+                <td>{{ usuario.cedula }}</td>
+                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.direccion }}</td>
+                <td>{{ usuario.celular }}</td>
+                <td>{{ usuario.email }}</td>
+
+                <td>
+                    <button class="editar-button btnEditar "><a href="{% url 'editar' usuario.id %}">Editar</a></button>
+                    {% if user.is_superuser %}
+                    <button class="eliminar-button btnEliminacion"><a href="{% url 'borrar' usuario.id %}">Eliminar</a></button>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</html>
+{% endblock %}
+
+{% block js %}
+{% load static %}
+<script src="{% static 'js/btnEliminacion.js' %}"></script>
+<script src="{% static 'js/btnEditar.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% endblock %}

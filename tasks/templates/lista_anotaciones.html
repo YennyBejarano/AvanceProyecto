@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <br><br><br><br><br><br>
+    <title>Lista de Anotaciones</title>
+</head>
+<body>
+    <br><br><br><br><br><br> <br><br><br><br><br><br>
+    {% block content %}
+    <h1>Lista de Anotaciones</h1>
+    <ul>
+        {% for anotacion in anotaciones %}
+            <li><a href="">{{ anotacion.tipo }}</a></li>
+            <li><a href="">{{ anotacion.fecha }}</a></li>
+            <li><a href="">{{ anotacion.descripcion }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+</body>
+
+
+</html>

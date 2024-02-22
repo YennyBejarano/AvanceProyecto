@@ -1,0 +1,44 @@
+
+
+
+.reunion-form {
+    width: 30%;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 5% auto; /* Ajustado para centrar vertical y horizontalmente */
+}
+
+.reunion-form table {
+    
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+
+}
+
+.reunion-form th, .reunion-form td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.reunion-form th {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.reunion-form button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.reunion-form button:hover {
+    background-color: #45a049;
+}

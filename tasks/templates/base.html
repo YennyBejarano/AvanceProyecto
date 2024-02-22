@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Proyecto</title>
+
+    <link type="text/css" href=" {% static  'css/agregar_usuarios.css' %}" rel="stylesheet" />
+    
+    <link type="text/css" href=' {% static  "css/home.css" %}' rel="stylesheet" />
+    <link type="text/css" href=' {% static  "css/base.css" %}' rel="stylesheet" />
+    <link type="text/css" href=' {% static  "css/signup.css" %}' rel="stylesheet" />
+    <link type="text/css" href=' {% static  "css/lista_usuarios.css" %}' rel="stylesheet" />
+    <link type="text/css" href=' {% static  "css/tasks.css" %}' rel="stylesheet" />
+    <link type="text/css" href=' {% static  "css/iniciarSesion.css" %}' rel="stylesheet" />
+    <link type="text/css" href=' {% static  "css/asistencia_lista.css" %}' rel="stylesheet" />
+    
+
+
+    {% block js %}
+    {% endblock %}
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">ASPAGROR</a>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Inicio</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'tasks' %}">Tareas Completadas</a></li>
+                <li><a href="{% url 'tasks_completed' %}">Tareas Pendientes</a></li>
+                <li><a href="/task/create/">crear t</a></li>
+                {% if user.is_superuser %}
+                <li><a href="/agregar_usuario">Registro de usuarios</a></li>
+                <li><a href="/lista_usuarios">Usuarios registrados</a></li>
+                <li><a href="/agregar_Reunion">agregar Reunion</a></li>
+                {% endif %}
+                <li><a href="/logout">cerrar sesion</a></li>
+                {% else %}
+                <li><a href="/signup">signup</a></li>
+                <li><a href="/iniciarSesion">iniciarSesion</a></li>
+                <li><a href="/asistencia">Asistencias de reuniones </a></li>
+                <li><a href="/reuniones">reuniones </a></li>
+                <li><a href="/anotaciones">anotaciones</a></li>
+                <li><a href="#"></a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <section class="container">
+
+    <script type="text/javascript">
+        window.addEventListener("scroll", function () {
+            var header = document.querySelector("header");
+            header.classList.toggle("abajo", window.scrollY > 0);
+        })
+    </script>
+    </section>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+{% block content %}
+
+{% endblock %}
+
+
+
+
+
+</body>
+
+</html>

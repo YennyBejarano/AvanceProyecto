@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href=' {% static  "css/editar.css" %}' rel="stylesheet" />
+    <script src="{% static 'js/desabilitar_camp.js' %}"></script>
+
+    {% block js %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="submit-button">Actualizar</button>
+    </form>
+
+
+    {% endblock %}
+</body>
+
+</html>

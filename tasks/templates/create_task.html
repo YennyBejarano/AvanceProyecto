@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+
+<h1>create  holaaa</h1>
+
+{{ error }}
+
+<form>
+
+
+    {% csrf_token %}
+{{form}}
+
+<button>
+
+    save
+
+</button>
+
+
+</form>
+
+{% endblock %}

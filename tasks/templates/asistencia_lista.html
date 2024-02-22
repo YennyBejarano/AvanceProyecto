@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Asistencias</title>
+</head>
+
+<body>
+    <section class="tabla-asistencia">
+        {% block content %}
+        <div class=" inicio ">
+            <p class="titulo">Lista de Asistencias</p>
+            <table border="1" class="tabla-bordes">
+                <thead>
+                    <tr class="filas">
+                        
+                        <th class="encabezado" >usuario</th>
+                        <th>ID Reunión</th>
+                        <th>fecha</th>
+                        <th>Asistio</th>
+
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="columna-secundaria">
+                    {% for asistencia in asistencias %}
+                    <tr>
+                        <td class="columna">{{ asistencia.usuario }}</td>
+                        <td>{{ asistencia.reunion.reunion }}</td>
+                        <td>{{ asistencia.fecha }}</td>
+                        <td>{{ asistencia.asistio }}</td>
+                        <td><button class="editar-button"><a href="{% url 'editar_asistencia' asistencia.id %}">Editar</a></button></td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+    {% endblock %}
+</body>
+
+
+</html>

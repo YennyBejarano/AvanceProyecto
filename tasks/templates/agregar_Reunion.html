@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+<html>
+
+<body>
+    {% block content %}
+
+    <section class="">
+        <form method="post" class="reunion-form">
+            <h1>Crear Nueva Reunion</h1>
+            {% csrf_token %}
+            {{ form.as_table }}
+            <button type="submit">Guardar</button>
+        </form>
+    </section>
+    {% endblock %}
+
+
+
+</body>
+
+</html>
+
+{% block js %}
+<link type="text/css" href=' {% static  "css/agregar_Reunion.css" %}' rel="stylesheet" />
+
+{% endblock %}

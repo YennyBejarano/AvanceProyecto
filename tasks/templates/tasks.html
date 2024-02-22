@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+  <h1>Tasks Pendientes</h1>
+
+  <table class="task-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Usuario</th>
+        <th>Fecha Completada</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks %}
+        <tr>
+          <td>{{ task.id }}</td>
+          <td>
+            <a href="{% url 'task_detail' task.id %}">
+              {% if task.important %}
+                <strong>{{ task.title }}</strong>
+              {% else %}
+                {{ task.title }}
+              {% endif %}
+            </a>
+          </td>
+          <td>{{ task.description }}</td>
+          <td>{{ task.user.username }}</td>
+          <td>{{ task.datecompleted|date:'M j Y:i' }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

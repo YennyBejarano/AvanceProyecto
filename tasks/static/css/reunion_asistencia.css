@@ -1,0 +1,41 @@
+
+.tabla {
+    display: flex;
+    overflow-x: auto;
+}
+
+.reuniones-asistencia {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reuniones-asistencia th, .reuniones-asistencia td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.titulos {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.relleno {
+    width: 50px; /* Ajusta el ancho según sea necesario */
+}
+
+/* Estilos para hacer la tabla horizontal */
+@media only screen and (max-width: 600px) {
+    .tabla {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .reuniones-asistencia th, .reuniones-asistencia td {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

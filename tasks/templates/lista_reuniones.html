@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Lista de Reuniones</title>
+</head>
+<body>
+    <br><br><br><br><br><br>
+    <h1>Lista de Reuniones</h1>
+    <ul>
+        {% block content %}
+        {% for reunion in reuniones %}
+        <li><a href="">{{ reunion.id }}</a></li>
+            <li><a href="">{{ reunion.asunto }}</a></li>
+            <li><a href="">{{ reunion.fecha|date:'M j y:i' }}</a></li>
+            <li><a href="">{{ reunion.descripcion }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+</body>
+
+
+</html>
